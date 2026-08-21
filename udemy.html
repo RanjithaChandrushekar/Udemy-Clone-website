@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udemy - Online Courses</title>
+<style>
+  :root{
+    --purple:#a435f0;
+    --purple-dark:#7c1fc9;
+    --black:#1c1d1f;
+    --gray-1:#6a6f73;
+    --gray-2:#d1d7dc;
+    --gray-bg:#f7f9fa;
+    --green:#2d7d46;
+    --star:#b4690e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--black);
+    background:#fff;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  img{display:block;max-width:100%;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    padding:0 40px;
+    height:64px;
+    border-bottom:1px solid var(--gray-2);
+    position:relative;
+    z-index:100;
+  }
+  .logo{
+    font-size:26px;
+    font-weight:800;
+    color:var(--black);
+    letter-spacing:-0.5px;
+    display:flex;
+    align-items:center;
+    gap:2px;
+  }
+  .logo svg{width:26px;height:26px;}
+  nav.main-nav{display:flex;align-items:center;gap:18px;flex-shrink:0;}
+  nav.main-nav > a, .explore-btn{
+    font-size:14px;
+    font-weight:700;
+    padding:8px 4px;
+    display:flex;
+    align-items:center;
+    gap:4px;
+  }
+  .explore-btn.active{color:var(--purple);}
+  .search-wrap{
+    flex:1;
+    max-width:750px;
+    margin:0 auto;
+  }
+  .search-box{
+    display:flex;
+    align-items:center;
+    border:1px solid var(--black);
+    border-radius:28px;
+    padding:9px 16px;
+    gap:10px;
+  }
+  .search-box input{
+    border:none;outline:none;flex:1;font-size:14px;
+  }
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-shrink:0;
+    margin-left:auto;
+  }
+  .header-right a.text-link{font-size:14px;font-weight:700;white-space:nowrap;}
+  .cart-icon{position:relative;}
+  .cart-badge{
+    position:absolute;top:-8px;right:-9px;
+    background:var(--purple);color:#fff;
+    font-size:10px;font-weight:700;
+    width:16px;height:16px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .btn-outline{
+    border:1px solid var(--black)!important;
+    border-radius:4px;
+    padding:8px 14px;
+    font-size:14px;
+    font-weight:700;
+  }
+  .btn-solid{
+    background:var(--black);
+    color:#fff;
+    border-radius:4px;
+    padding:8px 14px;
+    font-size:14px;
+    font-weight:700;
+  }
+  .globe-btn{
+    width:34px;height:34px;border:1px solid var(--gray-2);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- MEGA MENU ---------- */
+  .mega-menu{
+    position:absolute;
+    top:64px;left:0;
+    background:#fff;
+    box-shadow:0 8px 24px rgba(0,0,0,.15);
+    display:none;
+    width:100%;
+    border-top:1px solid var(--gray-2);
+  }
+  .explore-wrap:hover .mega-menu,
+  .mega-menu:hover{display:block;}
+  .mega-inner{
+    display:flex;
+    max-width:1200px;
+    margin:0 auto;
+    padding:28px 40px;
+    gap:60px;
+  }
+  .mega-col h4{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    color:var(--gray-1);
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  .mega-col ul li{margin-bottom:14px;}
+  .mega-col ul li a{
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    width:220px;
+  }
+  .mega-col ul li a:hover{color:var(--purple);}
+  .mega-col.marketing ul li a{color:var(--purple);}
+  .mega-col.marketing ul li:first-child a{color:var(--black);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(120deg,#bfe0fb 0%,#8ecbf5 55%,#63b3ee 100%);
+    overflow:hidden;
+    min-height:480px;
+    display:flex;
+    align-items:center;
+  }
+  .hero-inner{
+    max-width:1400px;
+    width:100%;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    padding:0 40px;
+    position:relative;
+  }
+  .hero-card{
+    background:#fff;
+    padding:44px 40px;
+    max-width:400px;
+    border-radius:2px;
+    z-index:3;
+  }
+  .hero-card h1{
+    font-size:38px;
+    line-height:1.15;
+    font-weight:800;
+    margin-bottom:20px;
+  }
+  .hero-card p{
+    font-size:16px;
+    color:var(--black);
+    margin-bottom:26px;
+    line-height:1.4;
+  }
+  .hero-card button{
+    background:var(--black);
+    color:#fff;
+    padding:12px 22px;
+    font-weight:700;
+    font-size:15px;
+    border-radius:2px;
+  }
+  .hero-card button:hover{background:#000;}
+  .hero-photo-wrap{
+    position:absolute;
+    right:0;
+    top:0;
+    height:100%;
+    width:60%;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+  }
+  .hero-photo-wrap img.person{
+    height:120%;
+    object-fit:cover;
+    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 60%, transparent 100%);
+  }
+  .sticker{
+    position:absolute;
+    filter:drop-shadow(0 4px 6px rgba(0,0,0,.15));
+  }
+  .sticker.star{
+    top:8%;
+    right:38%;
+    width:110px;
+  }
+  .sticker.arm{
+    bottom:6%;
+    right:44%;
+    width:130px;
+  }
+  .sticker.mouse{
+    bottom:10%;
+    right:2%;
+    width:130px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .section{
+    max-width:1400px;
+    margin:0 auto;
+    padding:56px 40px 0;
+  }
+  .section h2{
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:6px;
+  }
+  .section .subtitle{
+    font-size:16px;
+    color:var(--gray-1);
+    margin-bottom:24px;
+  }
+
+  /* tabs */
+  .tabs{
+    display:flex;
+    gap:32px;
+    border-bottom:1px solid var(--gray-2);
+    margin-bottom:28px;
+    overflow-x:auto;
+  }
+  .tab{
+    font-size:16px;
+    font-weight:600;
+    color:var(--gray-1);
+    padding-bottom:14px;
+    white-space:nowrap;
+    border-bottom:3px solid transparent;
+  }
+  .tab.active{
+    color:var(--black);
+    border-bottom-color:var(--black);
+    font-weight:700;
+  }
+  .tab:hover{color:var(--black);}
+
+  /* course grid */
+  .course-row-wrap{position:relative;}
+  .course-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  .course-card{
+    cursor:pointer;
+  }
+  .course-card img{
+    width:100%;
+    aspect-ratio:2/1.1;
+    object-fit:cover;
+    margin-bottom:10px;
+  }
+  .course-card h3{
+    font-size:15px;
+    font-weight:700;
+    line-height:1.3;
+    margin-bottom:4px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .course-card .instructor{
+    font-size:13px;
+    color:var(--gray-1);
+    margin-bottom:4px;
+  }
+  .badges{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:4px;
+    flex-wrap:wrap;
+  }
+  .bestseller{
+    background:#eceb98;
+    color:#3d3c0a;
+    font-size:11px;
+    font-weight:700;
+    padding:2px 6px;
+  }
+  .rating{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    font-size:13px;
+  }
+  .rating .num{color:var(--star);font-weight:700;}
+  .rating .count{color:var(--gray-1);}
+  .price{
+    font-size:16px;
+    font-weight:800;
+  }
+  .price .old{
+    font-weight:400;
+    color:var(--gray-1);
+    text-decoration:line-through;
+    margin-left:8px;
+    font-size:14px;
+  }
+  .show-all{
+    display:inline-block;
+    margin:24px 0 8px;
+    color:var(--purple);
+    font-weight:700;
+    font-size:15px;
+  }
+  .show-all:hover{text-decoration:underline;}
+
+  .scroll-btn{
+    position:absolute;
+    top:38%;
+    right:-18px;
+    width:40px;height:40px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- TRUSTED BY STRIP ---------- */
+  .trusted{
+    margin-top:70px;
+    padding:36px 40px;
+    background:#000;
+    color:#fff;
+    text-align:center;
+  }
+  .trusted h3{
+    font-size:15px;
+    font-weight:500;
+    margin-bottom:26px;
+  }
+  .trusted h3 b{font-weight:800;}
+  .logo-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:56px;
+    flex-wrap:wrap;
+    opacity:.85;
+  }
+  .logo-row span{
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:.5px;
+    color:#e7e7e7;
+    font-family:Georgia,serif;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  .testi-card{
+    background:var(--gray-bg);
+    padding:28px 24px;
+    border-radius:4px;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+  }
+  .testi-card .quote-mark{
+    font-size:32px;
+    color:var(--purple);
+    font-family:Georgia,serif;
+    line-height:1;
+    margin-bottom:10px;
+  }
+  .testi-card p.quote{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--black);
+    flex:1;
+    margin-bottom:20px;
+  }
+  .testi-person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .testi-person img{
+    width:44px;height:44px;border-radius:50%;object-fit:cover;
+  }
+  .testi-person .name{font-size:14px;font-weight:700;}
+  .testi-person .role{font-size:12px;color:var(--gray-1);}
+  .testi-card a.link{
+    font-size:13px;
+    font-weight:700;
+    color:var(--black);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .testi-card a.link:hover{color:var(--purple);}
+
+  /* ---------- CERTIFICATION SECTION ---------- */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .cert-card{
+    border:1px solid var(--gray-2);
+    border-radius:4px;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .cert-badge{
+    width:64px;height:64px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#fff;font-size:13px;flex-shrink:0;
+  }
+  .cert-badge.comptia{background:#c8102e;}
+  .cert-badge.aws{background:#232f3e;}
+  .cert-badge.pmi{background:#3d1560;}
+  .cert-card h3{font-size:17px;font-weight:700;margin-bottom:4px;}
+  .cert-card p{font-size:13px;color:var(--gray-1);}
+
+  /* ---------- SKILLS TAGS ---------- */
+  .skills-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .skill-tag{
+    border:1px solid var(--gray-2);
+    border-radius:20px;
+    padding:9px 18px;
+    font-size:14px;
+    font-weight:600;
+  }
+  .skill-tag:hover{border-color:var(--black);}
+
+  /* ---------- BUSINESS BANNER ---------- */
+  .biz-banner{
+    margin:80px 40px 0;
+    max-width:1400px;
+    margin-left:auto;margin-right:auto;
+    background:linear-gradient(120deg,#1c1d1f 0%,#3b0764 100%);
+    border-radius:6px;
+    padding:48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    color:#fff;
+    flex-wrap:wrap;
+  }
+  .biz-banner .left h2{font-size:26px;font-weight:800;margin-bottom:16px;max-width:480px;}
+  .biz-banner .left a{
+    display:inline-block;
+    background:#fff;color:var(--black);
+    padding:11px 20px;border-radius:4px;
+    font-weight:700;font-size:14px;
+  }
+  .biz-banner .logo-row span{color:#f1f1f1;}
+
+  /* ---------- FULL FOOTER ---------- */
+  footer{
+    margin-top:80px;
+    background:var(--gray-bg);
+    border-top:1px solid var(--gray-2);
+    padding:56px 40px 24px;
+    color:var(--gray-1);
+    font-size:13px;
+  }
+  .footer-inner{
+    max-width:1400px;
+    margin:0 auto;
+  }
+  .footer-cols{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:32px;
+    margin-bottom:40px;
+  }
+  .footer-cols h4{
+    font-size:14px;
+    font-weight:700;
+    color:var(--black);
+    margin-bottom:16px;
+  }
+  .footer-cols ul li{margin-bottom:12px;}
+  .footer-cols ul li a:hover{text-decoration:underline;color:var(--black);}
+  .footer-bottom{
+    border-top:1px solid var(--gray-2);
+    padding-top:24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .footer-bottom .f-logo{
+    font-size:20px;font-weight:800;color:var(--black);
+  }
+  .footer-links-inline{
+    display:flex;gap:18px;flex-wrap:wrap;
+  }
+  .footer-links-inline a:hover{text-decoration:underline;}
+  .lang-select{
+    border:1px solid var(--gray-2);
+    border-radius:4px;
+    padding:7px 12px;
+    display:flex;align-items:center;gap:6px;
+    font-weight:600;color:var(--black);
+  }
+
+  @media(max-width:900px){
+    .testi-grid{grid-template-columns:1fr 1fr;}
+    .cert-grid{grid-template-columns:1fr;}
+    .footer-cols{grid-template-columns:1fr 1fr;}
+    .logo-row{gap:28px;}
+  }
+  @media(max-width:600px){
+    .testi-grid{grid-template-columns:1fr;}
+    .footer-cols{grid-template-columns:1fr;}
+    .biz-banner{padding:28px;}
+  }
+
+  @media(max-width:1100px){
+    .course-grid{grid-template-columns:repeat(2,1fr);}
+    .hero-photo-wrap{width:45%;}
+  }
+  @media(max-width:700px){
+    header{padding:0 16px;gap:12px;}
+    .header-right a.text-link, nav.main-nav a{display:none;}
+    .search-wrap{max-width:none;}
+    .section{padding:36px 16px 0;}
+    .course-grid{grid-template-columns:1fr 1fr;gap:12px;}
+    .hero-card{max-width:100%;padding:28px 20px;}
+    .hero-card h1{font-size:28px;}
+    .hero-photo-wrap{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo" aria-label="Udemy home">
+    <svg viewBox="0 0 32 32" fill="none"><path d="M16 2 4 9v3l12 7 12-7V9L16 2Z" fill="#a435f0"/><path d="M9 15v8.5c0 3 3.2 5.5 7 5.5s7-2.5 7-5.5V15l-7 4-7-4Z" fill="#a435f0"/></svg>
+    udemy
+  </a>
+
+  <nav class="main-nav">
+    <div class="explore-wrap" style="position:relative;">
+      <button class="explore-btn active" id="exploreBtn">Explore <span style="font-size:10px;">▾</span></button>
+      <div class="mega-menu" id="megaMenu">
+        <div class="mega-inner">
+          <div class="mega-col">
+            <h4>New &amp; Featured</h4>
+            <ul>
+              <li><a href="#">🇬  Learn AI with Google <span>›</span></a></li>
+            </ul>
+            <h4 style="margin-top:24px;">Explore by goal</h4>
+            <ul>
+              <li><a href="#">Learn AI <span>›</span></a></li>
+              <li><a href="#">Launch a new career <span>›</span></a></li>
+              <li><a href="#">Prepare for a certification <span>›</span></a></li>
+              <li><a href="#">Practice with Role Play <span>›</span></a></li>
+            </ul>
+            <ul style="margin-top:8px;">
+              <li><a href="#">Development <span>›</span></a></li>
+              <li><a href="#">Business <span>›</span></a></li>
+              <li><a href="#">Finance &amp; Accounting <span>›</span></a></li>
+              <li><a href="#">IT &amp; Software <span>›</span></a></li>
+              <li><a href="#">Office Productivity <span>›</span></a></li>
+              <li><a href="#">Personal Development <span>›</span></a></li>
+              <li><a href="#">Design <span>›</span></a></li>
+              <li><a href="#" style="color:var(--purple);font-weight:700;">Marketing <span>›</span></a></li>
+              <li><a href="#">Lifestyle <span>›</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col marketing">
+            <h4 style="visibility:hidden;">.</h4>
+            <ul>
+              <li><a href="#">Digital Marketing <span>›</span></a></li>
+              <li><a href="#">Search Engine Optimization <span>›</span></a></li>
+              <li><a href="#">Social Media Marketing <span>›</span></a></li>
+              <li><a href="#">Branding <span>›</span></a></li>
+              <li><a href="#">Marketing Fundamentals <span>›</span></a></li>
+              <li><a href="#">Marketing Analytics &amp; Automation <span>›</span></a></li>
+              <li><a href="#">Public Relations <span>›</span></a></li>
+              <li><a href="#">Paid Advertising <span>›</span></a></li>
+              <li><a href="#">Video &amp; Mobile Marketing <span>›</span></a></li>
+              <li><a href="#">Content Marketing <span>›</span></a></li>
+              <li><a href="#">Growth Hacking <span>›</span></a></li>
+              <li><a href="#">Affiliate Marketing <span>›</span></a></li>
+              <li><a href="#">Product Marketing <span>›</span></a></li>
+              <li><a href="#">Other Marketing <span>›</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#">Subscribe</a>
+  </nav>
+
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1d1f" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search for anything">
+    </div>
+  </div>
+
+  <div class="header-right">
+    <a href="#" class="text-link">Udemy Business</a>
+    <a href="#" class="text-link">Teach on Udemy</a>
+    <a href="#" class="cart-icon" aria-label="Cart">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1c1d1f" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-badge">1</span>
+    </a>
+    <a href="#" class="text-link btn-outline">Log in</a>
+    <a href="#" class="text-link btn-solid">Sign up</a>
+    <button class="globe-btn" aria-label="Language">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c1d1f" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-card">
+      <h1>Build skills.<br>Burn less cash.</h1>
+      <p>Save for a limited time. Train your brain with courses on sale from $9.99. Offer ends Aug 27.</p>
+      <button>Save now</button>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="person" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=900&auto=format&fit=crop&q=60" alt="Person with braids blowing in the wind">
+      <svg class="sticker star" viewBox="0 0 100 100"><polygon points="50,2 61,35 96,35 68,56 79,90 50,70 21,90 32,56 4,35 39,35" fill="#fff" stroke="#1c1d1f" stroke-width="2"/></svg>
+      <svg class="sticker arm" viewBox="0 0 100 60"><path d="M10 55 Q10 30 30 25 Q35 5 55 10 Q65 12 62 25 Q80 22 78 40 Q76 55 55 55 Z" fill="#e8e04a" stroke="#1c1d1f" stroke-width="2"/></svg>
+      <svg class="sticker mouse" viewBox="0 0 100 120"><rect x="20" y="10" width="60" height="100" rx="30" fill="#4fd1a5" stroke="#1c1d1f" stroke-width="2"/><circle cx="50" cy="35" r="6" fill="#1c1d1f"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section class="section">
+  <h2>Skills to transform your career and life</h2>
+  <p class="subtitle">From critical skills to technical topics, Udemy supports your professional development.</p>
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-tab="ai">Artificial Intelligence (AI)</button>
+    <button class="tab" data-tab="python">Python</button>
+    <button class="tab" data-tab="excel">Microsoft Excel</button>
+    <button class="tab" data-tab="agents">AI Agents &amp; Agentic AI</button>
+    <button class="tab" data-tab="marketing">Digital Marketing</button>
+    <button class="tab" data-tab="aws">Amazon AWS</button>
+  </div>
+
+  <div class="course-row-wrap">
+    <div class="course-grid" id="courseGrid"></div>
+    <button class="scroll-btn" aria-label="Next">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1d1f" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <a href="#" class="show-all" id="showAllLink">Show all Artificial Intelligence (AI) courses →</a>
+</section>
+
+<!-- TRENDING -->
+<section class="section" style="padding-top:60px;">
+  <h2>Trending courses</h2>
+  <p class="subtitle">&nbsp;</p>
+  <div class="course-grid" id="trendingGrid"></div>
+</section>
+
+<!-- TRUSTED BY -->
+<section class="trusted">
+  <h3>Trusted by <b>over 17,000 companies</b> and millions of learners around the world</h3>
+  <div class="logo-row">
+    <span>SOLSTICE</span>
+    <span>VANTAGE&nbsp;LABS</span>
+    <span>MERIDIAN</span>
+    <span>ORBITAL</span>
+    <span>COBALT&amp;FINCH</span>
+    <span>NORTHSTAR</span>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <h2>Join others transforming their lives through learning</h2>
+  <p class="subtitle">&nbsp;</p>
+  <div class="testi-grid" id="testiGrid"></div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section">
+  <h2>Get certified and get ahead in your career</h2>
+  <p class="subtitle">Prep for certifications with comprehensive courses, practice tests, and exam-ready resources.</p>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-badge comptia">CompTIA</div>
+      <div><h3>CompTIA</h3><p>Cloud, Networking, Cybersecurity</p></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge aws">AWS</div>
+      <div><h3>AWS</h3><p>Cloud, AI, Coding, Networking</p></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge pmi">PMI</div>
+      <div><h3>PMI</h3><p>Project &amp; Program Management</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR SKILLS -->
+<section class="section">
+  <h2>Popular skills</h2>
+  <p class="subtitle">&nbsp;</p>
+  <div class="skills-tags" id="skillsTags"></div>
+</section>
+
+<!-- BUSINESS BANNER -->
+<div class="biz-banner">
+  <div class="left">
+    <h2>Top companies choose Udemy Business to build in-demand career skills.</h2>
+    <a href="#">Try Udemy Business</a>
+  </div>
+  <div class="logo-row">
+    <span>NASDAQ</span>
+    <span>NETAPP</span>
+    <span>EVENTBRITE</span>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-cols">
+      <div>
+        <h4>Udemy Business</h4>
+        <ul>
+          <li><a href="#">About Udemy Business</a></li>
+          <li><a href="#">Compare plans</a></li>
+          <li><a href="#">Try Udemy Business</a></li>
+        </ul>
+        <h4 style="margin-top:24px;">Teach on Udemy</h4>
+        <ul>
+          <li><a href="#">Become an instructor</a></li>
+          <li><a href="#">Instructor resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Investors</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Discover Udemy</h4>
+        <ul>
+          <li><a href="#">Get the app</a></li>
+          <li><a href="#">Invite friends</a></li>
+          <li><a href="#">Affiliate</a></li>
+          <li><a href="#">Help and support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal &amp; accessibility</h4>
+        <ul>
+          <li><a href="#">Accessibility statement</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Cookie settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="f-logo">udemy</div>
+      <div class="footer-links-inline">
+        <span>© 2026 Udemy Clone — demo build, not affiliated with Udemy, Inc.</span>
+      </div>
+      <div class="lang-select">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1d1f" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+        English
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const COURSES = {
+  ai: [
+    {img:"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=60", title:"The AI Engineer Course 2026: Complete AI Engineer Bootcamp", author:"365 Careers", rating:4.5, count:"24,329", price:10.99, old:54.99},
+    {img:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&q=60", title:"AI for Project Management: Real-World AI Use Cases for PMs", author:"365 Careers", rating:4.5, count:"1,016", price:9.99, old:19.99},
+    {img:"https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=500&q=60", title:"Data Science & AI Masters 2026 - From Python To Gen AI", author:"Dr. Satyajit Pattnaik, Satyajit Pattnaik", rating:4.4, count:"2,575", price:9.99, old:49.99},
+    {img:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&q=60", title:"A Practical Intro to AI Agents and Agentic AI", author:"Ligency, Alex Honchar", rating:4.6, count:"376", price:9.99, old:19.99},
+  ],
+  python: [
+    {img:"https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=500&q=60", title:"100 Days of Code: The Complete Python Pro Bootcamp", author:"Dr. Angela Yu", rating:4.7, count:"415,220", price:12.99, old:84.99},
+    {img:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500&q=60", title:"Python for Data Science and Machine Learning Bootcamp", author:"Jose Portilla", rating:4.6, count:"210,540", price:9.99, old:74.99},
+    {img:"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&q=60", title:"Automate the Boring Stuff with Python Programming", author:"Al Sweigart", rating:4.6, count:"128,300", price:11.99, old:59.99},
+    {img:"https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=500&q=60", title:"The Complete Python Bootcamp From Zero to Hero", author:"Jose Portilla", rating:4.6, count:"640,120", price:9.99, old:64.99},
+  ],
+  excel: [
+    {img:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=60", title:"Microsoft Excel - Excel from Beginner to Advanced", author:"Kyle Pew", rating:4.7, count:"350,900", price:9.99, old:69.99},
+    {img:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&q=60", title:"Excel Pivot Tables and Dashboard Reports", author:"Chris Dutton", rating:4.7, count:"98,220", price:10.99, old:54.99},
+    {img:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=60", title:"Microsoft Excel - Data Analysis with Excel Pivot Tables", author:"Maven Analytics", rating:4.6, count:"161,000", price:9.99, old:49.99},
+    {img:"https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=500&q=60", title:"Excel VBA Programming - The Complete Guide", author:"Leila Gharani", rating:4.7, count:"142,450", price:12.99, old:79.99},
+  ],
+  agents: [
+    {img:"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=60", title:"Agentic AI Engineering: Build Autonomous AI Agents", author:"Ligency Team", rating:4.5, count:"5,410", price:9.99, old:29.99},
+    {img:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&q=60", title:"LangChain & AI Agents: Build Production-Ready Apps", author:"Andrei Neagoie", rating:4.6, count:"12,340", price:10.99, old:64.99},
+    {img:"https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&q=60", title:"Multi-Agent Systems with AutoGen and CrewAI", author:"Jose Portilla", rating:4.5, count:"3,870", price:9.99, old:44.99},
+    {img:"https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=500&q=60", title:"Building Agentic Workflows for the Enterprise", author:"365 Careers", rating:4.4, count:"1,980", price:9.99, old:39.99},
+  ],
+  marketing: [
+    {img:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=60", title:"The Complete Digital Marketing Course - 12 Courses in 1", author:"Rob Percival, Daragh Walsh", rating:4.5, count:"210,900", price:11.99, old:84.99},
+    {img:"https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=500&q=60", title:"Social Media Marketing MASTERY 2026", author:"Alex Genadinik", rating:4.4, count:"88,400", price:9.99, old:54.99},
+    {img:"https://images.unsplash.com/photo-1557838923-2985c318be48?w=500&q=60", title:"SEO 2026: Complete SEO Training + SEO for WordPress", author:"Nick Mitchell", rating:4.5, count:"65,110", price:9.99, old:44.99},
+    {img:"https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=500&q=60", title:"Google Ads & Paid Advertising Masterclass", author:"Isaac Rudansky", rating:4.6, count:"52,760", price:10.99, old:59.99},
+  ],
+  aws: [
+    {img:"https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=60", title:"Ultimate AWS Certified Solutions Architect Associate", author:"Stephane Maarek", rating:4.7, count:"398,500", price:12.99, old:94.99},
+    {img:"https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=500&q=60", title:"AWS Certified Cloud Practitioner CLF-C02", author:"Stephane Maarek", rating:4.7, count:"260,300", price:9.99, old:74.99},
+    {img:"https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&q=60", title:"AWS Certified DevOps Engineer - Professional", author:"Stephane Maarek", rating:4.6, count:"72,900", price:11.99, old:84.99},
+    {img:"https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&q=60", title:"Amazon AWS Lambda & Serverless Architecture Bootcamp", author:"Wojciech Gebski", rating:4.5, count:"38,220", price:9.99, old:49.99},
+  ]
+};
+
+const TAB_LABELS = {
+  ai:"Artificial Intelligence (AI)", python:"Python", excel:"Microsoft Excel",
+  agents:"AI Agents & Agentic AI", marketing:"Digital Marketing", aws:"Amazon AWS"
+};
+
+function courseCard(c){
+  return `
+  <div class="course-card">
+    <img src="${c.img}" alt="${c.title}">
+    <h3>${c.title}</h3>
+    <div class="instructor">${c.author}</div>
+    <div class="badges">
+      <span class="bestseller">Bestseller</span>
+      <span class="rating"><span class="num">${c.rating}</span>★<span class="count">(${c.count})</span></span>
+    </div>
+    <div class="price">$${c.price} <span class="old">$${c.old}</span></div>
+  </div>`;
+}
+
+function renderTab(tab){
+  document.getElementById('courseGrid').innerHTML = COURSES[tab].map(courseCard).join('');
+  document.getElementById('showAllLink').textContent = `Show all ${TAB_LABELS[tab]} courses →`;
+}
+
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+    renderTab(btn.dataset.tab);
+  });
+});
+
+// initial render
+renderTab('ai');
+
+// trending = shuffled mix
+const trending = [...COURSES.ai.slice(0,1), ...COURSES.python.slice(0,1), ...COURSES.excel.slice(0,1), ...COURSES.aws.slice(0,1)];
+document.getElementById('trendingGrid').innerHTML = trending.map(courseCard).join('');
+
+// ---------- TESTIMONIALS ----------
+const TESTIMONIALS = [
+  {
+    quote:"The course broke AI down step by step, from the core ideas to real use cases. I finally feel confident using it responsibly at work instead of treating it like a novelty.",
+    name:"Priya K.", role:"AI Essentials graduate",
+    img:"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=60",
+    link:"View AI courses"
+  },
+  {
+    quote:"Udemy was genuinely a game-changer while we were building our product from scratch — the mobile development track gave our whole team a shared foundation.",
+    name:"Marcus D.", role:"Co-Founder & CTO, Loopline",
+    img:"https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=200&q=60",
+    link:"View mobile dev courses"
+  },
+  {
+    quote:"What I liked most was the pacing — I could learn on my own schedule and still walk away with something I could put on my resume the same week.",
+    name:"Elena R.", role:"Partner Account Manager, cloud industry",
+    img:"https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=60",
+    link:"View cloud courses"
+  },
+  {
+    quote:"I had no idea this tool existed before the course. Within a day of finishing I'd already built something useful with it for my own work.",
+    name:"Tomasz W.", role:"AI Professional Certificate graduate",
+    img:"https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=200&q=60",
+    link:"View AI certificates"
+  }
+];
+
+function testiCard(t){
+  return `
+  <div class="testi-card">
+    <div class="quote-mark">&ldquo;</div>
+    <p class="quote">${t.quote}</p>
+    <div class="testi-person">
+      <img src="${t.img}" alt="${t.name}">
+      <div>
+        <div class="name">${t.name}</div>
+        <div class="role">${t.role}</div>
+      </div>
+    </div>
+    <a class="link" href="#">${t.link} →</a>
+  </div>`;
+}
+document.getElementById('testiGrid').innerHTML = TESTIMONIALS.map(testiCard).join('');
+
+// ---------- POPULAR SKILLS ----------
+const SKILLS = ["Python","ChatGPT","Excel","AWS Certified Solutions Architect","JavaScript",
+  "Public Speaking","Leadership","SQL","Digital Marketing","Web Development",
+  "Graphic Design","Personal Finance","Machine Learning","Project Management","Data Analysis"];
+document.getElementById('skillsTags').innerHTML =
+  SKILLS.map(s=>`<a href="#" class="skill-tag">${s}</a>`).join('');
+
+// scroll button just cycles tabs for a bit of interactivity
+document.querySelector('.scroll-btn').addEventListener('click', ()=>{
+  const tabs = Array.from(document.querySelectorAll('.tab'));
+  const activeIdx = tabs.findIndex(t=>t.classList.contains('active'));
+  const next = tabs[(activeIdx+1) % tabs.length];
+  next.click();
+  next.scrollIntoView({behavior:'smooth', inline:'center'});
+});
+</script>
+</body>
+</html>
+
