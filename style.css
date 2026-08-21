@@ -1,0 +1,991 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Global Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background-color: #f7f9fa;
+  color: #1c1d1f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Transitions */
+button, a {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.course-info-container {
+  max-width: 56rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #2d2f31;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin-bottom: 0.75rem;
+}
+
+.requirements-list {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.requirements-list li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #2d2f31;
+  margin-bottom: 0.5rem;
+}
+
+.paragraph {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #2d2f31;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.course-structure {
+  margin-top: 1rem;
+}
+
+.structure-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1c1d1f;
+}
+
+.projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.projects-list li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: #2d2f31;
+}
+
+.day-title {
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+.course-info-container {
+  max-width: 56rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #2d2f31;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin-bottom: 0.75rem;
+}
+
+.paragraph {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #2d2f31;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.structure-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #1c1d1f;
+}
+
+.bold-text {
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+/* Lists */
+.projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.projects-list li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  color: #2d2f31;
+}
+
+.disc-list {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.disc-list li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #2d2f31;
+  margin-bottom: 0.5rem;
+}
+
+/* Collapsible Box Styles */
+.description-wrapper {
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.description-wrapper.collapsed {
+  max-height: 380px; /* Adjust height for initial preview */
+}
+
+.description-wrapper.expanded {
+  max-height: 3000px; /* Generous height for expanded content */
+}
+
+/* Gradient Fade Overlay on Collapsed Content */
+.gradient-overlay {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  pointer-events: none;
+}
+
+.description-wrapper.collapsed .gradient-overlay {
+  display: block;
+}
+
+/* Show More / Show Less Button */
+.show-more-btn {
+  display: inline-flex;
+  items-center: center;
+  gap: 0.375rem;
+  background: none;
+  border: none;
+  color: #5624d0;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.show-more-btn:hover {
+  color: #3b1299;
+}
+
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+
+/* Container Box */
+.description-container {
+  max-width: 56rem;
+  margin-top: 1.5rem;
+  font-family: inherit;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1c1d1f;
+  margin-bottom: 0.75rem;
+}
+
+.paragraph {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #2d2f31;
+  margin-bottom: 0.75rem;
+}
+
+/* Collapsible Box Logic */
+.description-wrapper {
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.35s ease-in-out;
+}
+
+/* Height when collapsed (adjust pixels if you want to show more/less text initially) */
+.description-wrapper.collapsed {
+  max-height: 160px;
+}
+
+/* Height when fully expanded */
+.description-wrapper.expanded {
+  max-height: 2000px;
+}
+
+/* Gradient Fade Overlay at the bottom when collapsed */
+.fade-overlay {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  pointer-events: none;
+}
+
+.description-wrapper.collapsed .fade-overlay {
+  display: block;
+}
+
+.course-info-container {
+  max-width: 56rem;
+  padding-left: 2.5rem; /* Creates the left gap */
+  padding-right: 2.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Card Container */
+.course-bought-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  border: 1px solid #e4e8eb;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.course-bought-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: #d1d7dc;
+}
+
+/* Left Content */
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.course-thumb {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.course-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.course-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1c1d1f;
+  line-height: 1.3;
+}
+
+.course-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: #2d2f31;
+}
+
+.rating-badge {
+  font-weight: 700;
+  background-color: #eceb2d;
+  color: #3d3c0a;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.students-count {
+  font-weight: 600;
+  color: #2d2f31;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.meta-pill {
+  border: 1px solid #d1d7dc;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.2rem;
+  color: #6a6f73;
+}
+
+/* Right Content (Pricing) */
+.card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-left: 1rem;
+  border-left: 1px solid #e4e8eb;
+  min-width: 6.5rem;
+}
+
+.current-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+.original-price {
+  font-size: 0.75rem;
+  color: #6a6f73;
+  text-decoration: line-through;
+}
+
+/* Full Width Show More Button */
+.toggle-bought-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem 0;
+  border: 1px solid #5624d0;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  color: #5624d0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.toggle-bought-btn:hover {
+  background-color: #f5f0ff;
+}
+
+/* Container Layout */
+.fbt-cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Card Outer Box */
+.fbt-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid #e4e8eb;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  align-items: flex-start;
+}
+
+/* Large Thumbnail Frame */
+.fbt-thumb {
+  width: 14rem;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Details Section */
+.fbt-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.fbt-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1c1d1f;
+  line-height: 1.3;
+}
+
+.fbt-desc {
+  font-size: 0.8125rem;
+  color: #6a6f73;
+  line-height: 1.4;
+}
+
+.fbt-author {
+  font-size: 0.75rem;
+  color: #6a6f73;
+}
+
+/* Ratings Badge */
+.fbt-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.fbt-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid #d1d7dc;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  color: #1c1d1f;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.fbt-ratings-count {
+  font-size: 0.75rem;
+  color: #6a6f73;
+  border: 1px solid #d1d7dc;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+/* Pricing Row */
+.fbt-price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.fbt-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+.fbt-original-price {
+  font-size: 0.8125rem;
+  color: #6a6f73;
+  text-decoration: line-through;
+}
+
+/* Plus Icon Circle Between Cards */
+.fbt-plus-circle {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #d1d7dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -0.875rem auto;
+  z-index: 10;
+  color: #1c1d1f;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Bottom Total & Checkout Bar */
+.fbt-checkout-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.fbt-total-box {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.total-label {
+  font-size: 0.95rem;
+  color: #2d2f31;
+}
+
+.total-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1c1d1f;
+}
+
+.total-original {
+  font-size: 0.875rem;
+  color: #6a6f73;
+  text-decoration: line-through;
+}
+
+/* Purple Action Button */
+.fbt-cart-btn {
+  background-color: #a435f0;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.fbt-cart-btn:hover {
+  background-color: #8710d8;
+}
+
+/* Reviews Grid Structure */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Review Card Styling */
+.review-card {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e4e8eb;
+  padding-top: 1.25rem;
+}
+
+/* User Info Row */
+.review-user-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.user-avatar {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: #1c1d1f;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.user-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1c1d1f;
+}
+
+.rating-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.star-rating {
+  color: #b4690e;
+  font-size: 0.75rem;
+  display: flex;
+  gap: 0.1rem;
+}
+
+.review-date {
+  font-size: 0.75rem;
+  color: #6a6f73;
+  font-weight: 600;
+}
+
+.more-options-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #2d2f31;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* Review Content */
+.review-text {
+  font-size: 0.875rem;
+  color: #2d2f31;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* Helpful Feedback Section */
+.feedback-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #6a6f73;
+}
+
+.feedback-label {
+  font-size: 0.75rem;
+  color: #6a6f73;
+}
+
+.like-btn,
+.dislike-btn {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #2d2f31;
+  border-radius: 50%;
+  background: transparent;
+  color: #2d2f31;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.like-btn:hover,
+.dislike-btn:hover {
+  background-color: #f7f9fa;
+}
+
+.like-btn.active,
+.dislike-btn.active {
+  background-color: #1c1d1f;
+  color: #ffffff;
+  border-color: #1c1d1f;
+}
+
+/* Footer Styles */
+.footer-container {
+  background-color: #1c1d1f;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Headings */
+.col-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+/* Directory Lists */
+.directory-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.directory-list li a {
+  color: #aeaeb2;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.directory-list li a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Logos styling */
+.enterprise-logos .logo-text {
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* Language selector button */
+.lang-btn {
+  background-color: transparent;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+/* Brand styling */
+.brand-logo {
+  font-family: serif;
+  font-weight: 800;
+}
+
+/* ===================================================
+   1. STUDENTS ALSO BOUGHT SECTION (CENTER ALIGNED)
+   =================================================== */
+.students-bought-container {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.students-bought-container h2 {
+  text-align: cente
+}
+
+/* Center card content internally */
+.course-bought-card {
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .course-bought-card {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.card-left {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .card-left {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.course-meta {
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .course-meta {
+    justify-content: flex-start;
+  }
+}
+
+.card-right {
+  align-items: center;
+  padding-left: 0;
+  border-left: none;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .card-right {
+    align-items: flex-end;
+    padding-left: 1rem;
+    border-left: 1px solid #e4e8eb;
+    width: auto;
+  }
+}
+
+
+/* ===================================================
+   2. FREQUENTLY BOUGHT TOGETHER (CENTER ALIGNED)
+   =================================================== */
+.fbt-container {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fbt-container h2 {
+  text-align: center;
+}
+
+.fbt-card {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .fbt-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.fbt-rating-row,
+.fbt-price-row {
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .fbt-rating-row,
+  .fbt-price-row {
+    justify-content: flex-start;
+  }
+}
+
+/* Center the bottom total and checkout bar */
+.fbt-checkout-bar {
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .fbt-checkout-bar {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+
+/* ===================================================
+   3. REVIEWS & RATINGS SECTION (CENTER ALIGNED)
+   =================================================== */
+.reviews-section {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reviews-header {
+  justify-content: center;
+  text-align: center;
+}
+
+.review-card {
+  text-align: center;
+  align-items: center;
+}
+
+.review-user-row {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.user-details {
+  align-items: center;
+}
+
+.rating-meta {
+  justify-content: center;
+}
+
+.more-options-btn {
+  margin-left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.review-text {
+  text-align: center;
+}
+
+.feedback-actions {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Navbar & Responsive Utilities */
+.main-navbar { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; background: #fff; border-bottom: 1px solid #e4e8eb; height: 64px; }
+.logo-text { font-family: serif; font-size: 1.8rem; font-weight: 800; color: #1c1d1f; letter-spacing: -1.5px; }
+.nav-icon-btn { background: none; border: none; font-size: 1.25rem; color: #1c1d1f; cursor: pointer; padding: 0.35rem; display: flex; align-items: center; justify-content: center; }
+.navbar-right-actions { display: flex; align-items: center; gap: 0.75rem; }
+.cart-icon-wrapper { position: relative; display: flex; align-items: center; }
+.cart-count-badge { position: absolute; top: -0.35rem; right: -0.45rem; background-color: #a435f0; color: #fff; font-size: 0.7rem; font-weight: 800; width: 1.2rem; height: 1.2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.desktop-center-nav { display: none; flex-grow: 1; max-width: 600px; margin: 0 1.5rem; }
+.search-box { position: relative; width: 100%; }
+.search-input { width: 100%; padding: 0.6rem 1rem 0.6rem 2.5rem; border: 1px solid #1c1d1f; border-radius: 9999px; background: #f7f9fa; font-size: 0.875rem; box-sizing: border-box; }
+.search-icon { position: absolute; left: 0.875rem; top: 50%; transform: translateY(-50%); color: #6a6f73; }
+.desktop-auth-group { display: none; align-items: center; gap: 0.5rem; }
+.btn-login { border: 1px solid #1c1d1f; background: transparent; padding: 0.5rem 1rem; font-weight: 700; cursor: pointer; }
+.btn-signup { background: #1c1d1f; color: #fff; border: none; padding: 0.5rem 1rem; font-weight: 700; cursor: pointer; }
+.btn-lang { border: 1px solid #1c1d1f; background: transparent; padding: 0.5rem; cursor: pointer; }
+.mobile-only { display: flex; }
+
+@media (min-width: 992px) {
+  .mobile-only { display: none; }
+  .desktop-center-nav { display: block; }
+  .desktop-auth-group { display: flex; }
+}
+
+/* Side Drawer Styles */
+.drawer-backdrop { position: fixed; inset: 0; background: rgba(45, 47, 49, 0.6); backdrop-filter: blur(2px); z-index: 99; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.drawer-backdrop.active { opacity: 1; pointer-events: auto; }
+.side-nav-container { position: fixed; top: 0; left: -320px; width: 280px; height: 100%; background: #fff; z-index: 100; transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1); box-shadow: 4px 0 16px rgba(0,0,0,0.15); }
+.side-nav-container.open { transform: translateX(320px); }
+.nav-close-btn { position: absolute; top: 1rem; right: -3.5rem; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: #fff; border: none; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; color: #1c1d1f; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.nav-scroll-content { height: 100%; overflow-y: auto; padding: 1.25rem 0; }
+.nav-section { padding: 0.25rem 0; }
+.section-label { padding: 0.5rem 1.25rem; font-size: 0.8125rem; font-weight: 700; color: #6a6f73; }
+.nav-divider { border: none; border-top: 1px solid #e4e8eb; margin: 0.5rem 0; }
+.nav-link { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; color: #2d2f31; font-size: 0.925rem; text-decoration: none; transition: background 0.15s ease; }
+.nav-link:hover { background: #f7f9fa; color: #1c1d1f; }
+.arrow-icon { font-size: 0.7rem; color: #2d2f31; }
+
+/* Forces the sticky course header to disappear */
+div:has(> h1:contains("30 HTML")) {
+  display: none !important;
+}
+
+header + div {
+  display: none !important;
+}
+
