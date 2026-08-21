@@ -1810,5 +1810,82 @@
       <!-- External JavaScript -->
       <script src="index.js"></script>
 </body>
+<!-- Auth Modal Popup -->
+<div id="auth-modal" class="auth-modal-backdrop">
+  <div class="auth-modal-card">
+    <button id="close-auth-modal" class="auth-modal-close" aria-label="Close modal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Tab Buttons -->
+    <div class="flex mb-6">
+      <button id="tab-login-btn" class="auth-tab-btn active" onclick="switchAuthTab('login')">Log in</button>
+      <button id="tab-signup-btn" class="auth-tab-btn" onclick="switchAuthTab('signup')">Sign up</button>
+    </div>
+
+    <!-- Login Form Section -->
+    <div id="modal-login-form" class="auth-form-content active">
+      <h2 class="text-base font-bold mb-4 text-[#1c1d1f]">Log in to your Udemy account</h2>
+      <form onsubmit="handleAuthSubmit(event, 'Login')">
+        <div class="mb-3">
+          <input type="email" placeholder="Email" class="w-full p-3 border border-[#1c1d1f] text-sm focus:outline-none focus:border-[#a435f0]" required />
+        </div>
+        <div class="mb-3">
+          <input type="password" placeholder="Password" class="w-full p-3 border border-[#1c1d1f] text-sm focus:outline-none focus:border-[#a435f0]" required />
+        </div>
+        <div class="flex justify-between items-center text-xs mb-4">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" /> Remember me
+          </label>
+          <a href="#" class="text-[#a435f0] font-bold hover:underline">Forgot password?</a>
+        </div>
+        <button type="submit" class="w-full py-3 bg-[#a435f0] hover:bg-[#8710d8] text-white font-bold text-sm transition">Log in</button>
+      </form>
+
+      <div class="text-center text-xs text-[#6a6f73] my-4">Other log in options</div>
+      <div class="space-y-2">
+        <button class="w-full p-2.5 border border-[#1c1d1f] font-bold text-sm flex items-center justify-center gap-3 hover:bg-gray-50">
+          <i class="fa-brands fa-google"></i> Continue with Google
+        </button>
+        <button class="w-full p-2.5 border border-[#1c1d1f] font-bold text-sm flex items-center justify-center gap-3 hover:bg-gray-50">
+          <i class="fa-brands fa-facebook text-[#1877f2]"></i> Continue with Facebook
+        </button>
+      </div>
+    </div>
+
+    <!-- Sign Up Form Section -->
+    <div id="modal-signup-form" class="auth-form-content">
+      <h2 class="text-base font-bold mb-4 text-[#1c1d1f]">Sign up and start learning</h2>
+      <form onsubmit="handleAuthSubmit(event, 'Sign Up')">
+        <div class="mb-3">
+          <input type="text" placeholder="Full name" class="w-full p-3 border border-[#1c1d1f] text-sm focus:outline-none focus:border-[#a435f0]" required />
+        </div>
+        <div class="mb-3">
+          <input type="email" placeholder="Email" class="w-full p-3 border border-[#1c1d1f] text-sm focus:outline-none focus:border-[#a435f0]" required />
+        </div>
+        <div class="mb-3">
+          <input type="password" placeholder="Password" class="w-full p-3 border border-[#1c1d1f] text-sm focus:outline-none focus:border-[#a435f0]" required />
+        </div>
+        <div class="text-xs mb-4">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" checked /> Send me special offers and recommendations
+          </label>
+        </div>
+        <button type="submit" class="w-full py-3 bg-[#a435f0] hover:bg-[#8710d8] text-white font-bold text-sm transition">Sign up</button>
+      </form>
+
+      <div class="text-center text-xs text-[#6a6f73] my-4">Other sign up options</div>
+      <div class="space-y-2">
+        <button class="w-full p-2.5 border border-[#1c1d1f] font-bold text-sm flex items-center justify-center gap-3 hover:bg-gray-50">
+          <i class="fa-brands fa-google"></i> Continue with Google
+        </button>
+        <button class="w-full p-2.5 border border-[#1c1d1f] font-bold text-sm flex items-center justify-center gap-3 hover:bg-gray-50">
+          <i class="fa-brands fa-facebook text-[#1877f2]"></i> Continue with Facebook
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 </html>
