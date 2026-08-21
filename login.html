@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Udemy - Log In & Sign Up</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --udemy-purple: #a435f0;
+      --udemy-purple-hover: #8710d8;
+      --text-dark: #1c1d1f;
+      --text-muted: #6a6f73;
+      --border-gray: #d1d7dc;
+      --bg-light: #f7f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Udemy Sans', -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--udemy-purple);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 16px;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .auth-card h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text-dark);
+    }
+
+    /* Tab Switcher */
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid var(--border-gray);
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background: none;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      position: relative;
+      bottom: -2px;
+    }
+
+    .tab-btn.active {
+      color: var(--text-dark);
+      border-bottom: 2px solid var(--text-dark);
+    }
+
+    /* Forms */
+    .form-group {
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 16px 12px;
+      border: 1px solid var(--text-dark);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .input-field:focus {
+      border-color: var(--udemy-purple);
+    }
+
+    /* Checkbox & Options */
+    .options-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .forgot-link {
+      color: var(--udemy-purple);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .forgot-link:hover {
+      color: var(--udemy-purple-hover);
+    }
+
+    /* Buttons */
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background-color: var(--udemy-purple);
+      color: #ffffff;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--udemy-purple-hover);
+    }
+
+    /* Social Logins */
+    .divider {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 16px 0;
+      position: relative;
+    }
+
+    .social-btn {
+      width: 100%;
+      padding: 12px;
+      background: #ffffff;
+      border: 1px solid var(--text-dark);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .social-btn:hover {
+      background-color: var(--bg-light);
+    }
+
+    /* Toggle Forms Display */
+    .form-content {
+      display: none;
+    }
+
+    .form-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">udemy<span>.</span></a>
+  </header>
+
+  <main>
+    <div class="auth-card">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('login')">Log in</button>
+        <button class="tab-btn" onclick="switchTab('signup')">Sign up</button>
+      </div>
+
+      <div id="login-form" class="form-content active">
+        <h2>Log in to your Udemy account</h2>
+        <form onsubmit="handleAuth(event, 'Login')">
+          <div class="form-group">
+            <input type="email" class="input-field" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" class="input-field" placeholder="Password" required />
+          </div>
+          <div class="options-row">
+            <label class="checkbox-container">
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn-submit">Log in</button>
+        </form>
+
+        <div class="divider">Other log in options</div>
+        <button class="social-btn"><i class="fa-brands fa-google"></i> Continue with Google</button>
+        <button class="social-btn"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Continue with Facebook</button>
+        <button class="social-btn"><i class="fa-brands fa-apple"></i> Continue with Apple</button>
+      </div>
+
+      <div id="signup-form" class="form-content">
+        <h2>Sign up and start learning</h2>
+        <form onsubmit="handleAuth(event, 'Sign Up')">
+          <div class="form-group">
+            <input type="text" class="input-field" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" class="input-field" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" class="input-field" placeholder="Password" required />
+          </div>
+          <div class="options-row">
+            <label class="checkbox-container">
+              <input type="checkbox" checked /> Send me special offers and recommendations
+            </label>
+          </div>
+          <button type="submit" class="btn-submit">Sign up</button>
+        </form>
+
+        <div class="divider">Other sign up options</div>
+        <button class="social-btn"><i class="fa-brands fa-google"></i> Continue with Google</button>
+        <button class="social-btn"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Continue with Facebook</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function switchTab(tab) {
+      const loginForm = document.getElementById('login-form');
+      const signupForm = document.getElementById('signup-form');
+      const tabs = document.querySelectorAll('.tab-btn');
+
+      if (tab === 'login') {
+        loginForm.classList.add('active');
+        signupForm.classList.remove('active');
+        tabs[0].classList.add('active');
+        tabs[1].classList.remove('active');
+      } else {
+        signupForm.classList.add('active');
+        loginForm.classList.remove('active');
+        tabs[1].classList.add('active');
+        tabs[0].classList.remove('active');
+      }
+    }
+
+    function handleAuth(event, type) {
+      event.preventDefault();
+      alert(`${type} submitted successfully!`);
+    }
+  </script>
+</body>
+</html>
