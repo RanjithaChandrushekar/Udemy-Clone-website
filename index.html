@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30 HTML CSS & JavaScript Projects A Beginner's Guide to JS | Udemy</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100 font-sans text-gray-900">
+
+  <!-- Top Announcement Banner -->
+  <div id="promo-banner" class="bg-[#ccebf0] text-gray-900 py-3 px-4 flex justify-between items-center text-sm">
+    <div class="w-full text-center font-bold text-gray-900 text-[14px]">
+      10 days left! Limited-time sale starts now! Build your skills for less with courses from ₹399.00.
+    </div>
+    <button id="close-banner-btn" class="text-gray-700 hover:text-black p-1 focus:outline-none">
+      <i class="fa-solid fa-xmark text-lg"></i>
+    </button>
+  </div>
+
+  
+    <!-- Main Header Navigation -->
+    <header class="bg-white border-b border-gray-200 shadow-sm">
+      <div class="max-w-[1920px] mx-auto px-6 flex items-center justify-between gap-6 py-3">
+
+        <!-- Fully Responsive Navigation Bar -->
+        <header class="main-navbar">
+          <!-- Left: Hamburger Button -->
+          <button id="menu-toggle-btn" class="nav-icon-btn" aria-label="Open side menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Center: Brand Logo -->
+          <a href="#" class="navbar-logo">
+            <span class="logo-text">udemy</span>
+          </a>
+
+          <!-- Desktop Search Bar -->
+          <div class="desktop-center-nav">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" placeholder="Search for anything" class="search-input" />
+            </div>
+          </div>
+
+          <!-- Right Actions -->
+          <div class="navbar-right-actions">
+            <button id="mobile-search-toggle" class="nav-icon-btn mobile-only" aria-label="Search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <div class="cart-icon-wrapper">
+              <button class="nav-icon-btn" aria-label="Shopping Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+              <span class="cart-count-badge">3</span>
+            </div>
+
+            <div class="desktop-auth-group">
+              <button class="btn-login">Log in</button>
+              <button class="btn-signup">Sign up</button>
+              <button class="btn-lang" aria-label="Language selector">
+                <i class="fa-solid fa-globe"></i>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Mobile Side Drawer & Overlay -->
+        <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+        <div id="side-navigation" class="side-nav-container">
+          <button id="close-nav-btn" class="nav-close-btn" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <div class="nav-scroll-content">
+            <div class="nav-section">
+              <a href="#" class="nav-link auth-link text-[#a435f0]">Log in</a>
+              <a href="#" class="nav-link auth-link text-[#a435f0]">Sign up</a>
+              <a href="#" class="nav-link">Subscribe</a>
+            </div>
+            <hr class="nav-divider" />
+            <div class="nav-section">
+              <div class="section-label">New & Featured</div>
+              <a href="#" class="nav-link has-arrow flex items-center justify-between">
+                <span class="flex items-center gap-2">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24">
+                    <path fill="#4285F4"
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                    <path fill="#34A853"
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                    <path fill="#FBBC05"
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                    <path fill="#EA4335"
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                  </svg>
+                  Learn AI with Google
+                </span>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+              </a>
+            </div>
+            
+            <hr class="nav-divider" />
+            <div class="nav-section">
+              <div class="section-label">Explore by goal</div>
+              <a href="#" class="nav-link has-arrow"><span>Learn AI</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+              <a href="#" class="nav-link has-arrow"><span>Launch a new career</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+              <a href="#" class="nav-link has-arrow"><span>Prepare for a certification</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+              <a href="#" class="nav-link"><span>Practice with Role Play</span></a>
+            </div>
+            <hr class="nav-divider" />
+            <div class="nav-section">
+              <div class="section-label">Most popular</div>
+              <a href="#" class="nav-link has-arrow"><span>Web Development</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+              <a href="#" class="nav-link has-arrow"><span>IT Certification</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+              <a href="#" class="nav-link has-arrow"><span>Data & Analytics</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+              <a href="#" class="nav-link has-arrow"><span>Game Development</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+              <a href="#" class="nav-link has-arrow"><span>Mobile Apps</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+              <a href="#" class="nav-link has-arrow"><span>Finance</span><i
+                  class="fa-solid fa-chevron-right arrow-icon"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Mini Course Bar -->
+        <div class="bg-[#1c1d1f] text-white px-6 py-2.5 border-b border-gray-800 >
+          <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <h2 class="font-bold text-sm md:text-base text-white truncate max-w-xl">
+                30 HTML CSS & JavaScript Projects A Beginner's Guide to JS
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Dark Course Hero Section -->
+      <section class="bg-[#1c1d1f] text-white py-8 px-6">
+        <div class="max-w-5xl mx-auto space-y-4">
+
+          <!-- Breadcrumbs -->
+          <nav class="flex items-center space-x-2 text-xs font-semibold text-[#c0c4fc]">
+            <a href="#" class="hover:underline">Web Development</a>
+            <span>&rsaquo;</span>
+            <a href="#" class="hover:underline">JavaScript</a>
+          </nav>
+
+          <!-- Course Title -->
+          <h1 class="text-2xl md:text-3xl font-bold tracking-wide leading-tight text-white">
+            30 HTML CSS & JavaScript Projects A Beginner's Guide to JS
+          </h1>
+
+          <!-- Course Subtitle -->
+          <p class="text-base md:text-lg text-gray-200">
+            Build HTML, CSS &amp; and JavaScript Projects each day for 30 Days and create your portfolio as a Beginner
+            Front
+            End Web
+          </p>
+
+          <!-- Ratings and Students -->
+          <div class="flex flex-wrap items-center gap-2 text-sm">
+            <span class="font-bold text-[#f3ca8c]">4.6</span>
+            <div class="flex text-[#f3ca8c] text-xs">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <a href="#" class="text-[#c0c4fc] underline font-normal">(679 ratings)</a>
+            <span class="text-gray-300">55,948 students</span>
+          </div>
+
+          <!-- Metadata -->
+          <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300 pt-2">
+            <div class="flex items-center gap-1.5">
+              <i class="fa-regular fa-calendar text-sm"></i>
+              <span>Last updated 2/2024</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <i class="fa-solid fa-globe text-sm"></i>
+              <span>English</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <i class="fa-regular fa-closed-captioning text-sm"></i>
+              <span>English [Auto]</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Course Content Main Details Section -->
+      <main class="bg-white py-8 px-6">
+        <div class="max-w-5xl mx-auto space-y-12">
+
+          <!-- What You'll Learn Box -->
+          <div class="border border-gray-300 p-6 rounded-none bg-white">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">What you'll learn</h2>
+
+            <div id="learn-list" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm text-gray-800">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Modern CSS animations and custom properties.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>DOM manipulation techniques.</span>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Event handling in JavaScript.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Array methods for data manipulation.</span>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Date manipulation using JavaScript.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Building 30 projects with pure JavaScript, HTML5, and CSS3.</span>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Utilizing CSS for basic applications effectively.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Writing maintainable, clean, and performant JavaScript code.</span>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Creating interactive web elements with JavaScript.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Constructing a solid portfolio as a Beginner Front End Web Developer.</span>
+              </div>
+
+              <!-- Extra Items (Collapsible) -->
+              <div class="extra-item flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Awesome way to use the CSS for some basic applications</span>
+              </div>
+              <div class="extra-item flex items-start gap-3">
+                <i class="fa-solid fa-check text-gray-700 mt-1 text-xs"></i>
+                <span>Write maintainable, clean, and performant JavaScript code</span>
+              </div>
+            </div>
+
+            <!-- Toggle Button -->
+            <button id="toggle-learn-btn"
+              class="mt-6 text-[#5624d0] font-bold text-sm flex items-center gap-2 hover:text-[#3b1299] focus:outline-none">
+              <span id="toggle-text">Show less</span>
+              <i id="toggle-icon" class="fa-solid fa-chevron-up text-xs"></i>
+            </button>
+          </div>
+
+          <!-- Explore Related Topics -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-gray-900">Explore related topics</h2>
+            <div class="flex flex-wrap gap-3">
+              <a href="#"
+                class="px-4 py-2 border border-gray-900 rounded-full font-bold text-sm text-gray-900 hover:bg-gray-100 transition">
+                JavaScript
+              </a>
+              <a href="#"
+                class="px-4 py-2 border border-gray-900 rounded-full font-bold text-sm text-gray-900 hover:bg-gray-100 transition">
+                CSS
+              </a>
+              <a href="#"
+                class="px-4 py-2 border border-gray-900 rounded-full font-bold text-sm text-gray-900 hover:bg-gray-100 transition">
+                Web Development
+              </a>
+              <a href="#"
+                class="px-4 py-2 border border-gray-900 rounded-full font-bold text-sm text-gray-900 hover:bg-gray-100 transition">
+                Development
+              </a>
+            </div>
+          </div>
+
+          <!-- This Course Includes Section -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-gray-900">This course includes:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-12 text-sm text-gray-800">
+              <div class="flex items-center gap-4">
+                <i class="fa-solid fa-circle-play text-gray-700 text-base w-4"></i>
+                <span>16 hours on-demand video</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <i class="fa-solid fa-infinity text-gray-700 text-base w-4"></i>
+                <span>Full lifetime access</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <i class="fa-regular fa-file text-gray-700 text-base w-4"></i>
+                <span>35 downloadable resources</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <i class="fa-regular fa-closed-captioning text-gray-700 text-base w-4"></i>
+                <span>Closed captions</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <i class="fa-solid fa-mobile-screen-button text-gray-700 text-base w-4"></i>
+                <span>Access on mobile and TV</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <i class="fa-solid fa-trophy text-gray-700 text-base w-4"></i>
+                <span>Certificate of completion</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Content Accordion Section -->
+          <div class="space-y-4 pt-4">
+            <h2 class="text-2xl font-bold text-gray-900">Course content</h2>
+
+            <div class="flex justify-between items-center text-sm text-gray-700 pb-2">
+              <span>10 sections • 42 lectures • 16h 0m total length</span>
+              <button id="toggle-all-sections" class="text-[#5624d0] font-bold hover:text-[#3b1299]">
+                Expand all sections
+              </button>
+            </div>
+
+            <!-- Course Content Container -->
+            <div class="border border-gray-300 divide-y divide-gray-300">
+
+              <!-- SECTION 1: Introduction -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-down accordion-arrow text-xs text-gray-700"></i>
+                    <span>Introduction</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">2 lectures • 9min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Introduction</span>
+                    </div>
+                    <span class="text-xs text-gray-500">2:21</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Download the Required Software's for the Course</span>
+                    </div>
+                    <span class="text-xs text-gray-500">6:57</span>
+                  </div>
+                </div>
+              </div> <!-- END Introduction -->
+
+              <!-- Day 1: Speech to Text -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-down accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 1: Speech to Text</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 38min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Speech to Text Application Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">4:02</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Speech to Text Application HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">4:01</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Speech to Text Application CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">11:01</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Speech to Text Application JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">19:15</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 2: Piano Application -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-down accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 2: Piano Application</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 25min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Piano Application Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:28</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Piano Application HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">6:19</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Piano Application CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">11:17</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Piano Application JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">6:23</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 3: Text to Voice Application -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-down accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 3: Text to Voice Application</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 21min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Text to Speech Application Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:54</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Text to Speech Application HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">2:54</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Text to Speech Application CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">9:44</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Text to Speech Application JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">6:16</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 4: Robot Joke Generator Application -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-down accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 4: Robot Joke Generator Application</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 46min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Robot Joke Generator Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:21</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Robot Joke Generator HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">5:39</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Robot Joke Generator CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">21:24</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Robot Joke Generator JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">17:37</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 5: HSL Color Generator -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-up accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 5: HSL Color Generator</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 39min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>HSL Color Generator Application Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:24</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>HSL Color Generator Application HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">8:30</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>HSL Color Generator Application CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">10:16</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>HSL Color Generator Application JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">18:48</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 6: Modal Application -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-up accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 6: Modal Application</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 22min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Modal Application Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:24</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Modal Application HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">3:42</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Modal Application CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">13:05</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Modal Application JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">4:47</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 7: Digital Clock -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-up accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 7: Digital Clock</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 9min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Digital Clock Application Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:24</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Digital Clock Application HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">1:31</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Digital Clock Application CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">5:15</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Digital Clock Application JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">2:17</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 8: Color Flipper Project -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-down accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 8: Color Flipper Project</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 25min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Color Flipper Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:24</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Color Flipper HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">2:48</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Color Flipper CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">8:57</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Color Flipper JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">11:51</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 9: Percentage Calculator -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-down accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 9: Percentage Calculator</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 29min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Percentage Calculator Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:24</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Percentage Calculator HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">6:16</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Percentage Calculator CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">10:47</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Percentage Calculator JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">9:48</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 10: Calculator Project -->
+              <div class="accordion-item">
+                <button
+                  class="accordion-header w-full flex items-center justify-between p-4 bg-[#f7f9fa] hover:bg-gray-100 text-left font-bold text-gray-900 text-sm">
+                  <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-chevron-down accordion-arrow text-xs text-gray-700"></i>
+                    <span>Day 10: Calculator Project</span>
+                  </div>
+                  <span class="text-xs font-normal text-gray-600">4 lectures • 40min</span>
+                </button>
+
+                <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Calculator Application Preview</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <a href="#" class="text-[#5624d0] underline font-bold text-xs flex items-center gap-1">
+                        <i class="fa-solid fa-circle-play text-[#5624d0]"></i> Preview
+                      </a>
+                      <span class="text-xs text-gray-500">1:24</span>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Calculator Application HTML</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">5:26</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Calculator Application CSS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">15:46</span>
+                  </div>
+
+                  <div class="flex items-center justify-between text-sm text-gray-700">
+                    <div class="flex items-center gap-3">
+                      <i class="fa-regular fa-circle-play text-gray-600 text-xs"></i>
+                      <span>Calculator Application JS</span>
+                      <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </div>
+                    <span class="text-xs text-gray-500">17:52</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-content hidden bg-white p-4 space-y-3 border-t border-gray-200">
+                <!-- Content can be added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="max-w-4xl px-8 md:px-12 py-8 text-[#2d2f31]">
+        <!-- Requirements and Description Container -->
+        <div class="course-info-container">
+
+          <!-- Requirements Section -->
+          <section class="info-section">
+            <h2 class="section-title">Requirements</h2>
+            <ul class="requirements-list">
+              <li>A basic knowledge of HTML, CSS & JavaScript</li>
+              <li>PC or Mac</li>
+            </ul>
+          </section>
+
+          <!-- Description Section -->
+          <section class="info-section">
+            <h2 class="section-title">Description</h2>
+            <p class="paragraph">What is going on everybody?</p>
+            <p class="paragraph">Welcome to the 30 Projects in 30 Days Course!</p>
+            <p class="paragraph">This is a Beginner-friendly Project Course with all the modern features of HTML5, CSS3,
+              and
+              JavaScript!</p>
+
+            <p class="paragraph">
+              So, embark on a journey of discovery with our "30 Projects in 30 Days" course, designed especially for
+              beginner
+              front-end web developers. Over the span of a month, you'll delve into HTML5, CSS3, and JavaScript,
+              crafting a
+              new project each day to build your portfolio and solidify your skills.
+            </p>
+
+            <p class="paragraph">
+              In this course, you'll explore modern CSS animations, custom properties, DOM manipulation, events, array
+              methods, data manipulation, and more. With 30 projects utilizing pure JavaScript, HTML5, and CSS3, you'll
+              gain
+              hands-on experience in writing maintainable, clean, and performant code. Each project is constructed from
+              scratch, allowing you to understand every aspect of the development process.
+            </p>
+
+            <p class="paragraph">
+              Whether you're brushing up on basics or diving into modern web development techniques, this course caters
+              to
+              beginners and intermediates alike. Projects vary in complexity, ensuring a well-rounded learning
+              experience
+              that's applicable to real-life scenarios.
+            </p>
+
+            <p class="paragraph">
+              If you're ready for the challenge, join us on this exciting journey and enhance your skills as a front-end
+              web
+              developer. Whether you're aiming to bolster your portfolio or embark on a new career path, these projects
+              are
+              essential for anyone eager to master JavaScript and excel in web development.
+            </p>
+
+            <!-- Course Structure -->
+            <div class="course-structure">
+              <p class="structure-label">Course Structure:</p>
+              <p class="paragraph">So what are we building? 30 Projects as follows:</p>
+
+              <ul class="projects-list">
+                <li><span class="day-title">Day 1: Speech-to-Text Project:</span> Create a project where users can speak
+                  into
+                  their device's microphone and have their speech converted into text.</li>
+                <li><span class="day-title">Day 2: Piano Application:</span> Develop a virtual piano application where
+                  users
+                  can play musical notes and chords using their keyboard or mouse.</li>
+                <li><span class="day-title">Day 3: Text-to-Voice Application:</span> Build an application that converts
+                  written text into spoken words, allowing users to listen to the text they input.</li>
+                <li><span class="day-title">Day 4: Robot Joke Generator:</span> Craft a project that generates random
+                  jokes
+                  delivered in a robotic voice or text format.</li>
+                <li><span class="day-title">Day 5: HSL Color Generator:</span> Develop a tool that generates colors
+                  using
+                  the
+                  HSL (Hue, Saturation, Lightness) color model, allowing users to customize and preview colors.</li>
+                <li><span class="day-title">Day 6: Modal Application:</span> Create a modal popup window that displays
+                  content
+                  or messages over the main application interface.</li>
+                <li><span class="day-title">Day 7: Digital Clock:</span> Design a digital clock that displays the
+                  current
+                  time
+                  and updates in real-time.</li>
+                <li><span class="day-title">Day 8: Color Flipper:</span> Build a project that randomly selects and
+                  displays
+                  colors, providing users with a fun and interactive way to explore different color combinations.</li>
+                <li><span class="day-title">Day 9: Percentage Calculator:</span> Develop a calculator application
+                  capable of
+                  calculating percentages for various mathematical operations.</li>
+                <li><span class="day-title">Day 10: Calculator Application:</span> Create a fully functional calculator
+                  application with support for basic arithmetic operations.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Additional JavaScript Content -->
+          <p class="paragraph mt-4">
+            JavaScript is one of the top in-demand programming languages and it is climbing to the very top!
+          </p>
+
+          <p class="structure-label">Why Learn JavaScript?</p>
+          <p class="paragraph">
+            This is a simple answer, go to Google and type in the search bar "Top 10 programming languages" If
+            JavaScript is
+            in the top 5 then take the Course. Not convinced, then go to Google and type in the search bar "The 10 most
+            in-demand programming languages for developers at top companies" If JavaScript is in the top 5 then take the
+            Course.
+          </p>
+
+          <p class="structure-label">Who this course is for:</p>
+          <ul class="disc-list">
+            <li>Learning JavaScript for the first time? Already using JavaScript and want to master the language? This
+              course
+              is for you!</li>
+            <li>This course is for anyone who wants to use JavaScript to launch an application, switch careers, or
+              freelance
+              as a JavaScript developer.</li>
+          </ul>
+
+          <p class="structure-label mt-4">What is JavaScript?</p>
+          <p class="paragraph">
+            JavaScript is a scripting language that enables you to create dynamically updating content, control
+            multimedia,
+            animate images, and pretty much <em>everything</em> else.
+          </p>
+
+          <p class="paragraph">
+            Who should enroll in this course? Beginners are looking to solidify their foundation in HTML, CSS, and
+            JavaScript,
+            as well as those seeking to switch careers or freelance as JavaScript developers. JavaScript's prominence in
+            the
+            programming landscape makes this course invaluable for anyone aspiring to thrive in the world of web
+            development.
+          </p>
+
+          <!-- Gradient Fade Overlay when Collapsed -->
+          <div class="gradient-overlay"></div>
+        </div>
+
+        <!-- Who this course is for Section -->
+        <section class="info-section mt-8">
+          <h2 class="section-title">Who this course is for:</h2>
+          <ul class="disc-list">
+            <li>Beginner developers who want to create a solid portfolio</li>
+            <li>Beginner front-end developers who want to create a solid portfolio</li>
+            <li>Beginner HTML CSS and JavaScript developers</li>
+            <li>Beginner web developers</li>
+            <li>Beginner JavaScript developers</li>
+            <li>JavaScript developers looking for portfolio projects</li>
+            <li>Learning JavaScript for the first time? Already using JavaScript and want to master the language? This
+              course
+              is for you!</li>
+            <li>This course is for anyone who wants to use JavaScript to launch an application, switch careers, or
+              freelance
+              as a JavaScript developer.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Students Also Bought Section -->
+      <section class="students-bought-container max-w-4xl px-8 md:px-12 py-6">
+        <h2 class="text-2xl font-bold text-[#1c1d1f] mb-4">Students also bought</h2>
+
+        <!-- Course Cards Container -->
+        <div id="bought-courses-list" class="space-y-3">
+
+          <!-- Card 1 (Visible) -->
+          <div class="course-bought-card">
+            <div class="card-left">
+              <img src="std1.webp" alt="Course Thumbnail" class="course-thumb" />
+              <div class="course-info">
+                <h3 class="course-title">Build 20 JavaScript Projects in 20 Day with HTML, CSS & JS</h3>
+                <div class="course-meta">
+                  <span class="rating-badge">4.4 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                  <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 55,940</span>
+                  <span class="meta-pill">7 hours</span>
+                  <span class="meta-pill">Updated: 11/2023</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-right">
+              <span class="current-price">₹399.00</span>
+              <span class="original-price">₹799.00</span>
+            </div>
+          </div>
+
+          <!-- Card 2 (Visible) -->
+          <div class="course-bought-card">
+            <div class="card-left">
+              <img src="std2.webp" alt="Course Thumbnail" class="course-thumb" />
+              <div class="course-info">
+                <h3 class="course-title">Master JavaScript, HTML, and CSS with 30 Projects in 30 Days</h3>
+                <div class="course-meta">
+                  <span class="rating-badge">4.1 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                  <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 48,014</span>
+                  <span class="meta-pill">18.5 hours</span>
+                  <span class="meta-pill">Updated: 6/2024</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-right">
+              <span class="current-price">₹399.00</span>
+              <span class="original-price">₹2,049.00</span>
+            </div>
+          </div>
+
+          <!-- Card 3 (Visible) -->
+          <div class="course-bought-card">
+            <div class="card-left">
+              <img src="std3.webp" alt="Course Thumbnail" class="course-thumb" />
+              <div class="course-info">
+                <h3 class="course-title">Hands-On JavaScript, Crafting 10 Projects from Scratch</h3>
+                <div class="course-meta">
+                  <span class="rating-badge">4.1 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                  <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 62,992</span>
+                  <span class="meta-pill">5 hours</span>
+                  <span class="meta-pill">Updated: 12/2023</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-right">
+              <span class="current-price">₹399.00</span>
+              <span class="original-price">₹799.00</span>
+            </div>
+          </div>
+
+          <!-- Card 4 (Visible) -->
+          <div class="course-bought-card">
+            <div class="card-left">
+              <img src="std4.webp" alt="Course Thumbnail" class="course-thumb" />
+              <div class="course-info">
+                <h3 class="course-title">Javascript Programming Course Build 100 Projects in 100 Days</h3>
+                <div class="course-meta">
+                  <span class="rating-badge">4.5 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                  <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 4,445</span>
+                  <span class="meta-pill">46.5 hours</span>
+                  <span class="meta-pill">Updated: 1/2026</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-right">
+              <span class="current-price">₹399.00</span>
+              <span class="original-price">₹799.00</span>
+            </div>
+          </div>
+
+          <!-- HIDDEN COURSES (Toggle via Button) -->
+          <div id="extra-bought-courses" class="hidden space-y-3">
+
+            <!-- Card 5 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std5.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">20 Web Projects build 20 HTML, CSS and JavaScript projects</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.2 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 60,409</span>
+                    <span class="meta-pill">10.5 hours</span>
+                    <span class="meta-pill">Updated: 12/2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹799.00</span>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std6.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">JavaScript 20 Projects In 20 Days HTML, CSS & JavaScript</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.4 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 52,850</span>
+                    <span class="meta-pill">8.5 hours</span>
+                    <span class="meta-pill">Updated: 11/2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹799.00</span>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std7.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">JavaScript Projects Course Build 20 Projects in 20 Days</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.5 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 60,297</span>
+                    <span class="meta-pill">13.5 hours</span>
+                    <span class="meta-pill">Updated: 9/2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹799.00</span>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std4.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">CSS, Bootstrap, JavaScript And PHP Stack Complete Course</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.5 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 129,860</span>
+                    <span class="meta-pill">8 hours</span>
+                    <span class="meta-pill">Updated: 10/2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹1,849.00</span>
+              </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std6.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">Learn JavaScript by Creating 10 Practical Projects</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.2 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 63,865</span>
+                    <span class="meta-pill">6 hours</span>
+                    <span class="meta-pill">Updated: 6/2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹799.00</span>
+              </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std1.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">Design a Website Template using HTML5 & CSS3</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.5 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 25,672</span>
+                    <span class="meta-pill">11.5 hours</span>
+                    <span class="meta-pill">Updated: 1/2025</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹1,489.00</span>
+              </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std5.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">JavaScript, jQuery & TypeScript: Full-Stack Web Development</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.2 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 27,170</span>
+                    <span class="meta-pill">6 hours</span>
+                    <span class="meta-pill">Updated: 5/2025</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹799.00</span>
+              </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std3.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">JavaScript Fundamentals Course for Beginners</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.3 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 35,708</span>
+                    <span class="meta-pill">3 hours</span>
+                    <span class="meta-pill">Updated: 5/2025</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹799.00</span>
+              </div>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="course-bought-card">
+              <div class="card-left">
+                <img src="std7.webp" alt="Course Thumbnail" class="course-thumb" />
+                <div class="course-info">
+                  <h3 class="course-title">Mastering HTML5 and CSS3 (Part 2 - Intermediate Level)</h3>
+                  <div class="course-meta">
+                    <span class="rating-badge">4.4 <i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i></span>
+                    <span class="students-count"><i class="fa-solid fa-user-group text-xs"></i> 25,900</span>
+                    <span class="meta-pill">4 hours</span>
+                    <span class="meta-pill">Updated: 6/2024</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-right">
+                <span class="current-price">₹399.00</span>
+                <span class="original-price">₹799.00</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Full Width Purple Outline Toggle Button -->
+        <button id="toggle-bought-btn" class="toggle-bought-btn">
+          Show more
+        </button>
+      </section>
+
+      <!-- Frequently Bought Together Section -->
+      <section class="fbt-container max-w-4xl px-8 md:px-12 py-8">
+        <h2 class="text-2xl font-bold text-[#1c1d1f] mb-6">Frequently Bought Together</h2>
+
+        <div class="fbt-cards-wrapper">
+
+          <!-- Course 1 -->
+          <div class="fbt-card" data-price="399" data-original="1709">
+            <img src="std1.webp" alt="Course 1 Thumbnail" class="fbt-thumb" />
+            <div class="fbt-details">
+              <h3 class="fbt-title">30 HTML CSS & JavaScript Projects A Beginner's Guide to JS</h3>
+              <p class="fbt-desc">Build HTML, CSS & JavaScript Projects each day for 30 Days and create your portfolio
+                as a
+                Beginner Front End Web</p>
+              <p class="fbt-author">Vijay Kumar</p>
+              <div class="fbt-rating-row">
+                <span class="fbt-badge"><i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i> 4.6</span>
+                <span class="fbt-ratings-count">679 ratings</span>
+              </div>
+              <div class="fbt-price-row">
+                <span class="fbt-price">₹399.00</span>
+                <span class="fbt-original-price">₹1,709.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plus Separator Circle -->
+          <div class="fbt-plus-circle">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+
+          <!-- Course 2 -->
+          <div class="fbt-card" data-price="399" data-original="799">
+            <img src="std7.webp" alt="Course 2 Thumbnail" class="fbt-thumb" />
+            <div class="fbt-details">
+              <h3 class="fbt-title">20 Web Projects build 20 HTML, CSS and JavaScript projects</h3>
+              <p class="fbt-desc">Modern HTML5, CSS3, and JavaScript to build Responsive and Mobile Friendly projects
+                for
+                your dream portfolio and resume!</p>
+              <p class="fbt-author">Vijay Kumar</p>
+              <div class="fbt-rating-row">
+                <span class="fbt-badge"><i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i> 4.2</span>
+                <span class="fbt-ratings-count">510 ratings</span>
+              </div>
+              <div class="fbt-price-row">
+                <span class="fbt-price">₹399.00</span>
+                <span class="fbt-original-price">₹799.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plus Separator Circle -->
+          <div class="fbt-plus-circle">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+
+          <!-- Course 3 -->
+          <div class="fbt-card" data-price="399" data-original="799">
+            <img src="std2.webp" alt="Course 3 Thumbnail" class="fbt-thumb" />
+            <div class="fbt-details">
+              <h3 class="fbt-title">JavaScript 20 Projects In 20 Days HTML, CSS & JavaScript</h3>
+              <p class="fbt-desc">Embark on a 20-Day Journey, Mastering JavaScript with 20 Quick, Unique, and Fun Mini
+                Projects to Sharpen Your Skills</p>
+              <p class="fbt-author">Vijay Kumar</p>
+              <div class="fbt-rating-row">
+                <span class="fbt-badge"><i class="fa-solid fa-star text-[10px] text-[#b4690e]"></i> 4.4</span>
+                <span class="fbt-ratings-count">391 ratings</span>
+              </div>
+              <div class="fbt-price-row">
+                <span class="fbt-price">₹399.00</span>
+                <span class="fbt-original-price">₹799.00</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Checkout Bar -->
+        <div class="fbt-checkout-bar">
+          <div class="fbt-total-box">
+            <span class="total-label">Total:</span>
+            <span id="fbt-total-price" class="total-price">₹1,197.00</span>
+            <span id="fbt-total-original" class="total-original">₹3,307.00</span>
+          </div>
+          <button id="fbt-cart-btn" class="fbt-cart-btn">Go to cart</button>
+        </div>
+      </section>
+
+      <!-- Reviews & Ratings Section -->
+      <section class="reviews-section max-w-4xl px-8 md:px-12 py-8">
+        <!-- Rating Header -->
+        <div class="reviews-header flex items-center gap-2 mb-6 text-xl font-bold text-[#1c1d1f]">
+          <i class="fa-solid fa-star text-[#b4690e] text-lg"></i>
+          <span>4.6 course rating</span>
+          <span class="text-[#6a6f73] font-normal">•</span>
+          <span>679 ratings</span>
+        </div>
+
+        <!-- Reviews Grid Layout -->
+        <div class="reviews-grid">
+
+          <!-- Review Card 1 -->
+          <div class="review-card">
+            <div class="review-user-row">
+              <div class="user-avatar">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="user-details">
+                <h4 class="user-name">Aayush</h4>
+                <div class="rating-meta">
+                  <span class="star-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </span>
+                  <span class="review-date">23 days ago</span>
+                </div>
+              </div>
+              <button class="more-options-btn" aria-label="More options">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+            </div>
+            <p class="review-text">
+              it's best for me to understand the concept of html, css and javascript it is easy to build any project and
+              how
+              to use the function and many more concept
+            </p>
+            <div class="feedback-actions">
+              <span class="feedback-label">Helpful?</span>
+              <button class="like-btn" aria-label="Helpful"><i class="fa-regular fa-thumbs-up"></i></button>
+              <button class="dislike-btn" aria-label="Not helpful"><i class="fa-regular fa-thumbs-down"></i></button>
+            </div>
+          </div>
+
+          <!-- Review Card 2 -->
+          <div class="review-card">
+            <div class="review-user-row">
+              <div class="user-avatar">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="user-details">
+                <h4 class="user-name">Deepa</h4>
+                <div class="rating-meta">
+                  <span class="star-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </span>
+                  <span class="review-date">3 months ago</span>
+                </div>
+              </div>
+              <button class="more-options-btn" aria-label="More options">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+            </div>
+            <p class="review-text">
+              Good experience
+            </p>
+            <div class="feedback-actions">
+              <span class="feedback-label">Helpful?</span>
+              <button class="like-btn" aria-label="Helpful"><i class="fa-regular fa-thumbs-up"></i></button>
+              <button class="dislike-btn" aria-label="Not helpful"><i class="fa-regular fa-thumbs-down"></i></button>
+            </div>
+          </div>
+
+          <!-- Review Card 3 -->
+          <div class="review-card">
+            <div class="review-user-row">
+              <div class="user-avatar">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="user-details">
+                <h4 class="user-name">Devarsh</h4>
+                <div class="rating-meta">
+                  <span class="star-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </span>
+                  <span class="review-date">4 months ago</span>
+                </div>
+              </div>
+              <button class="more-options-btn" aria-label="More options">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+            </div>
+            <p class="review-text">
+              in some video sections the voice is very low to hear.
+            </p>
+            <div class="feedback-actions">
+              <span class="feedback-label">Helpful?</span>
+              <button class="like-btn" aria-label="Helpful"><i class="fa-regular fa-thumbs-up"></i></button>
+              <button class="dislike-btn" aria-label="Not helpful"><i class="fa-regular fa-thumbs-down"></i></button>
+            </div>
+          </div>
+
+          <!-- Review Card 4 -->
+          <div class="review-card">
+            <div class="review-user-row">
+              <div class="user-avatar">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="user-details">
+                <h4 class="user-name">Rajeev Ranjan</h4>
+                <div class="rating-meta">
+                  <span class="star-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </span>
+                  <span class="review-date">7 months ago</span>
+                </div>
+              </div>
+              <button class="more-options-btn" aria-label="More options">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+            </div>
+            <p class="review-text">
+              Course is well designed and in live coding 'how' is explained nicely.
+            </p>
+            <div class="feedback-actions">
+              <span class="feedback-label">Helpful?</span>
+              <button class="like-btn" aria-label="Helpful"><i class="fa-regular fa-thumbs-up"></i></button>
+              <button class="dislike-btn" aria-label="Not helpful"><i class="fa-regular fa-thumbs-down"></i></button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer class="footer-container text-white bg-[#1c1d1f]">
+
+        <!-- Top Enterprise Banner -->
+        <div
+          class="footer-enterprise-banner border-b border-[#3e4143] py-6 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="enterprise-text font-bold text-base md:text-lg">
+            Top companies choose <a href="#" class="text-[#bec0c2] hover:underline font-bold">Udemy Business</a> to
+            build
+            in-demand career skills.
+          </div>
+          <div class="enterprise-logos flex items-center gap-8 flex-wrap justify-center opacity-90">
+            <span class="logo-text font-semibold text-xl tracking-wider"><i
+                class="fa-solid fa-chart-line text-sm mr-1"></i>Nasdaq</span>
+            <span class="logo-text font-bold text-xl tracking-widest"><i
+                class="fa-solid fa-car text-sm mr-1"></i>VW</span>
+            <span class="logo-text font-bold text-lg"><i class="fa-solid fa-server text-sm mr-1"></i>NetApp</span>
+            <span class="logo-text font-semibold text-lg lowercase"><i
+                class="fa-solid fa-ticket text-sm mr-1"></i>eventbrite</span>
+          </div>
+        </div>
+
+        <!-- Main Directory & Links Area -->
+        <div class="footer-main-content max-w-7xl mx-auto px-6 md:px-12 py-10">
+          <h3 class="text-lg font-bold mb-8 text-[#ffffff]">Explore top skills and certifications</h3>
+
+          <!-- 4-Column Directory Grid -->
+          <div class="directory-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+
+            <!-- Column 1 -->
+            <div class="directory-col space-y-6">
+              <div>
+                <h4 class="col-heading">In-demand Careers</h4>
+                <ul class="directory-list">
+                  <li><a href="#">Data Scientist</a></li>
+                  <li><a href="#">Full Stack Web Developer</a></li>
+                  <li><a href="#">Cloud Engineer</a></li>
+                  <li><a href="#">Project Manager</a></li>
+                  <li><a href="#">Game Developer</a></li>
+                  <li><a href="#">All Career Accelerators</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="col-heading">Certifications by Skill</h4>
+                <ul class="directory-list">
+                  <li><a href="#">Cybersecurity Certification</a></li>
+                  <li><a href="#">Project Management Certification</a></li>
+                  <li><a href="#">Cloud Certification</a></li>
+                  <li><a href="#">Data Analytics Certification</a></li>
+                  <li><a href="#">HR Management Certification</a></li>
+                  <li><a href="#">See all Certifications</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="directory-col space-y-6">
+              <div>
+                <h4 class="col-heading">Web Development</h4>
+                <ul class="directory-list">
+                  <li><a href="#">Web Development</a></li>
+                  <li><a href="#">JavaScript</a></li>
+                  <li><a href="#" class="underline">React JS</a></li>
+                  <li><a href="#">Angular</a></li>
+                  <li><a href="#">Java</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="col-heading">Data Science</h4>
+                <ul class="directory-list">
+                  <li><a href="#">Data Science</a></li>
+                  <li><a href="#">Python</a></li>
+                  <li><a href="#">Machine Learning</a></li>
+                  <li><a href="#">ChatGPT</a></li>
+                  <li><a href="#">Deep Learning</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="directory-col space-y-6">
+              <div>
+                <h4 class="col-heading">IT Certifications</h4>
+                <ul class="directory-list">
+                  <li><a href="#">Amazon AWS</a></li>
+                  <li><a href="#">AWS Certified Cloud Practitioner</a></li>
+                  <li><a href="#">AZ-900: Microsoft Azure Fundamentals</a></li>
+                  <li><a href="#">AWS Certified Solutions Architect - Associate</a></li>
+                  <li><a href="#">Kubernetes</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="col-heading">Communication</h4>
+                <ul class="directory-list">
+                  <li><a href="#">Communication Skills</a></li>
+                  <li><a href="#">Presentation Skills</a></li>
+                  <li><a href="#">Public Speaking</a></li>
+                  <li><a href="#">Writing</a></li>
+                  <li><a href="#">PowerPoint</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="directory-col space-y-6">
+              <div>
+                <h4 class="col-heading">Leadership</h4>
+                <ul class="directory-list">
+                  <li><a href="#">Leadership</a></li>
+                  <li><a href="#">Management Skills</a></li>
+                  <li><a href="#">Project Management</a></li>
+                  <li><a href="#">Personal Productivity</a></li>
+                  <li><a href="#">Emotional Intelligence</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="col-heading">Business Analytics & Intelligence</h4>
+                <ul class="directory-list">
+                  <li><a href="#">Microsoft Excel</a></li>
+                  <li><a href="#">SQL</a></li>
+                  <li><a href="#">Microsoft Power BI</a></li>
+                  <li><a href="#">Data Analysis</a></li>
+                  <li><a href="#">Business Analysis</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Divider Line -->
+          <div class="border-t border-[#3e4143] my-8"></div>
+
+          <!-- Secondary Navigation Links -->
+          <div class="nav-links-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-sm mb-12">
+            <div>
+              <h4 class="col-heading">About</h4>
+              <ul class="directory-list">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#" class="underline">Investors</a></li>
+                <li><a href="#">Find more on Coursera</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="col-heading">Discover Udemy</h4>
+              <ul class="directory-list">
+                <li><a href="#">Get the app</a></li>
+                <li><a href="#">Teach on Udemy</a></li>
+                <li><a href="#">Plans and Pricing</a></li>
+                <li><a href="#">Affiliate</a></li>
+                <li><a href="#">Help and Support</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="col-heading">Udemy for Business</h4>
+              <ul class="directory-list">
+                <li><a href="#">Udemy Business</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="col-heading">Legal & Accessibility</h4>
+              <ul class="directory-list">
+                <li><a href="#">Accessibility statement</a></li>
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">Sitemap</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Brand Bar -->
+        <div
+          class="footer-bottom-bar border-t border-[#3e4143] py-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <span class="brand-logo text-2xl font-bold tracking-tight text-white">udemy</span>
+            <span class="copyright-text text-xs text-[#aeaeb2]">© 2026 Udemy, Inc.</span>
+          </div>
+
+          <button id="cookie-settings-btn" class="cookie-btn text-xs text-[#a435f0] hover:underline">
+            Cookie settings
+          </button>
+
+          <button id="lang-selector-btn"
+            class="lang-btn border border-white px-3 py-1.5 rounded text-sm flex items-center gap-2 hover:bg-[#2d2f31]">
+            <i class="fa-solid fa-globe text-xs"></i>
+            <span>English</span>
+          </button>
+        </div>
+      </footer>
+
+
+
+      <!-- External JavaScript -->
+      <script src="index.js"></script>
+</body>
+
+</html>
